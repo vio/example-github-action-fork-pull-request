@@ -42,3 +42,8 @@ jobs:
           RELATIVE_CI_KEY: ${{ secrets.RELATIVE_CI_KEY }}
           DEBUG: ${{ secrets.DEBUG }}
 
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts
+          path: artifacts
