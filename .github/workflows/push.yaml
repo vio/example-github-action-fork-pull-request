@@ -30,17 +30,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - uses: hmarr/debug-action@v2
-
       - run: npm ci
 
       - run: npm run build --if-present
 
-      - name: Send stats to relative-ci.com
-        run: npx relative-ci-agent
-        env:
-          RELATIVE_CI_KEY: ${{ secrets.RELATIVE_CI_KEY }}
-          DEBUG: ${{ secrets.DEBUG }}
+      - name: Send webpack stats to RelativeCI
+        uses: relative-ci/agent-action@master
+        with:
+          webpackStatsFile: ./artifacts/webpack-stats.json
+          key: ${{ secrets.RELATIVE_CI_KEY }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
