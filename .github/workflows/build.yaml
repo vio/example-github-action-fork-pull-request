@@ -39,6 +39,7 @@ jobs:
         with:
           webpackStatsFile: ./artifacts/webpack-stats.json
           key: ${{ secrets.RELATIVE_CI_KEY }}
+          debug: true
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
