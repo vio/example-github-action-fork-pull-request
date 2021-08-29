@@ -1,6 +1,6 @@
-name: Push
+name: Build
 
-on: push
+on: pull_request
 
 jobs:
   build:
@@ -35,7 +35,7 @@ jobs:
       - run: npm run build --if-present
 
       - name: Send webpack stats to RelativeCI
-        uses: relative-ci/agent-action@v1.0.0
+        uses: relative-ci/agent-action@pull-request-support
         with:
           webpackStatsFile: ./artifacts/webpack-stats.json
           key: ${{ secrets.RELATIVE_CI_KEY }}
