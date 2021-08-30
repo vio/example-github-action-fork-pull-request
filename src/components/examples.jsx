@@ -11,6 +11,7 @@ export const Examples = (props) => {
 
   return (
     <div className={css.root}>
+      <h1>Examples:</h1>
       {repos.map(({ node }) => (
         <a className={css.item} href={node.url} key={node.name}>
           <Card key={node.name}>
