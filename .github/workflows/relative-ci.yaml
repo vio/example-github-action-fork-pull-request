@@ -25,6 +25,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: artifacts
+          path: artifacts
 
       - name: Send webpack stats to RelativeCI
         uses: relative-ci/agent-action@v1.1.0
