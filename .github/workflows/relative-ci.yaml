@@ -20,12 +20,34 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # Download artifacts from 
-      - name: Download Build workflow artifacts
-        uses: actions/download-artifact@v2
+      - uses: hmarr/debug-action@v2
+
+      - name: 'Download artifacts'
+        uses: actions/github-script@v3.1.0
         with:
-          name: artifacts
-          path: artifacts
+          script: |
+            var artifacts = await github.actions.listWorkflowRunArtifacts({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               run_id: ${{github.event.workflow_run.id }},
+            });
+
+            var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
+              return artifact.name == "artifacts"
+            })[0];
+
+            var download = await github.actions.downloadArtifact({
+               owner: context.repo.owner,
+               repo: context.repo.repo,
+               artifact_id: matchArtifact.id,
+               archive_format: 'zip',
+            });
+
+            var fs = require('fs');
+            fs.writeFileSync('${{github.workspace}}/artifacts.zip', Buffer.from(download.data));
+            
+      - name: Display structure of downloaded files
+        run: ls -R
 
       - name: Send webpack stats to RelativeCI
         uses: relative-ci/agent-action@v1.1.0
