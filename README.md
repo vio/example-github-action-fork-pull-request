@@ -1,9 +1,9 @@
-# example-github-action-pull-request
+# example-github-action-fork-pull-request
 
-[![Push](https://github.com/relative-ci/example-github-action-pull-request/actions/workflows/build.yaml/badge.svg)](https://github.com/relative-ci/example-github-action-pull-request/actions/workflows/relative-ci.yaml)
-[![RelativeCI](https://badges.relative-ci.com/badges/n7hvYSuKi8g7YbFXKEe0?branch=master)](https://app.relative-ci.com/projects/n7hvYSuKi8g7YbFXKEe0)
+[![Push](https://github.com/relative-ci/example-github-action-fork-pull-request/actions/workflows/build.yaml/badge.svg)](https://github.com/relative-ci/example-github-action-fork-pull-request/actions/workflows/build.yaml)
+[![RelativeCI](https://badges.relative-ci.com/badges/WHdD8qHoSgd45vPTKYvm?branch=master)](https://app.relative-ci.com/projects/WHdD8qHoSgd45vPTKYvm)
 
-> [@relative-ci/agent](https://github.com/relative-ci/agent) [Github Action](https://github.com/features/actions) example running on `pull_request` event
+> [@relative-ci/agent](https://github.com/relative-ci/agent) [Github Action](https://github.com/features/actions) example running on forked pull request.
 
 
 ## Example app
