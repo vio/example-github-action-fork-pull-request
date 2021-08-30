@@ -1,0 +1,34 @@
+name: RelativeCI
+
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Download artifacts from 
+      - name: Download Build workflow artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: artifacts
+
+      - name: Send webpack stats to RelativeCI
+        uses: relative-ci/agent-action@v1.1.0
+        with:
+          webpackStatsFile: ./artifacts/webpack-stats.json
+          key: ${{ secrets.RELATIVE_CI_KEY }}
+          debug: true
