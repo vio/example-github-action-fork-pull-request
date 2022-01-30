@@ -15,7 +15,7 @@ jobs:
           node-version: '16.x'
 
       - name: Send webpack stats to RelativeCI
-        uses: relative-ci/agent-action@workflow-row-support
+        uses: relative-ci/agent-action@b8ece70d255a19929c63769ac46c295a51967144
         with:
           # Webpack stats path relative to the artifacts folder
           webpackStatsFile: ./webpack-stats.json
