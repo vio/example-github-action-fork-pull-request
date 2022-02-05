@@ -13,7 +13,7 @@ jobs:
       - uses: hmarr/debug-action@v2
 
       - name: Send webpack stats to RelativeCI
-        uses: relative-ci/agent-action@80943de00f73ec8a252e5df91758c0131effe71c
+        uses: relative-ci/agent-action@e09377c3bca0f3804ec4f6455dea4a6dc0e70b0d
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # Webpack stats path relative to the artifacts folder
