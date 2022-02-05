@@ -14,6 +14,8 @@ jobs:
         with:
           node-version: '16.x'
 
+       - uses: hmarr/debug-action@v2
+
       - name: Send webpack stats to RelativeCI
         uses: relative-ci/agent-action@360baf7e6dcc831b6407a9e84fc0d6feeafdbbb6
         with:
