@@ -21,8 +21,8 @@ jobs:
       # Build and output webpack stats
       - run: npm run build -- --json webpack-stats.json
 
-      # Save artifacts/webpack-stats.json to use on relative-ci.yaml
+      # Upload artifacts/webpack-stats.json to use on relative-ci.yaml
       - name: Upload webpack stats artifact
-        uses: relative-ci/agent-upload-artifact-action@a9e932bf1b8cefce3424469ac0130c38270b0369
+        uses: relative-ci/agent-upload-artifact-action@v1
         with:
           webpackStatsFile: ./webpack-stats.json
