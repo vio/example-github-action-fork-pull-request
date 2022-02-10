@@ -23,6 +23,6 @@ jobs:
 
       # Save artifacts/webpack-stats.json to use on relative-ci.yaml
       - name: Upload webpack stats artifact
-        uses: relative-ci/agent-upload-artifact-action@db8039a5f9a7b19885d78f7cfaf1499d558c190d
+        uses: relative-ci/agent-upload-artifact-action@dbbeedae7d15ddab0013b6abbea7513fa923bdb5
         with:
           webpackStatsFile: ./webpack-stats.json
